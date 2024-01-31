@@ -37,6 +37,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.button_delete = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +53,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button_delete);
             this.groupBox1.Controls.Add(this.listView3);
             this.groupBox1.Controls.Add(this.listView2);
             this.groupBox1.Controls.Add(this.listView1);
@@ -146,6 +148,18 @@
             this.label1.Text = "Product";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // button_delete
+            // 
+            this.button_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button_delete.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_delete.Location = new System.Drawing.Point(494, 313);
+            this.button_delete.Name = "button_delete";
+            this.button_delete.Size = new System.Drawing.Size(119, 30);
+            this.button_delete.TabIndex = 16;
+            this.button_delete.Text = "DELETE";
+            this.button_delete.UseVisualStyleBackColor = true;
+            this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
+            // 
             // Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,5 +186,6 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.ListView listView3;
+        private System.Windows.Forms.Button button_delete;
     }
 }

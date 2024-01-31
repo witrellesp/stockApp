@@ -61,10 +61,12 @@ namespace ApplicationGestionStock
                     listView1.Items.Clear();
                     listView2.Items.Clear();
                     listView3.Items.Clear();
+                    listView1.CheckBoxes = true;
                     while (reader.Read())
                     {
                         ListViewItem item = new ListViewItem(reader["name"].ToString());
-                        
+                        item.Tag = reader["name"];
+
                         ListViewItem item2 = new ListViewItem(reader["price"].ToString());
                         ListViewItem item3 = new ListViewItem(reader["stock"].ToString());
                         listView1.Columns.Add("Columna 1", -2, HorizontalAlignment.Left);
@@ -75,10 +77,15 @@ namespace ApplicationGestionStock
                         listView2.Items.Add(item2);
                         listView3.Items.Add(item3);
 
-                        listView1.CheckBoxes = true;
-                        listView1.GridLines = true;
+                       
+
+                        
 
                     }
+                   
+
+
+
                 }
             }
         }
@@ -96,6 +103,34 @@ namespace ApplicationGestionStock
 
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_delete_Click(object sender, EventArgs e)
+        {
+
+            foreach(ListViewItem item in listView1.Items)
+            {
+
+                if (item.Checked)
+                {
+                    string productId = Convert.ToString(item.Tag);
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        string query = "DELETE FROM t_product WHERE name = producId";
+                        MySqlCommand cmd = new MySqlCommand(query, connection);
+                        cmd.Parameters.AddWithValue("@productId", productId);
+                       
+                    }
+                   
+                }
+            }
+
 
         }
     }
