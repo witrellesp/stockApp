@@ -30,6 +30,8 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.listView3 = new System.Windows.Forms.ListView();
+            this.listView2 = new System.Windows.Forms.ListView();
             this.listView1 = new System.Windows.Forms.ListView();
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,6 +52,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.listView3);
+            this.groupBox1.Controls.Add(this.listView2);
             this.groupBox1.Controls.Add(this.listView1);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.label3);
@@ -64,13 +68,37 @@
             this.groupBox1.Text = "All Products";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // listView3
+            // 
+            this.listView3.BackColor = System.Drawing.Color.DarkGray;
+            this.listView3.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView3.HideSelection = false;
+            this.listView3.Location = new System.Drawing.Point(437, 86);
+            this.listView3.Name = "listView3";
+            this.listView3.Size = new System.Drawing.Size(119, 211);
+            this.listView3.TabIndex = 15;
+            this.listView3.UseCompatibleStateImageBehavior = false;
+            // 
+            // listView2
+            // 
+            this.listView2.BackColor = System.Drawing.Color.DarkGray;
+            this.listView2.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView2.HideSelection = false;
+            this.listView2.Location = new System.Drawing.Point(261, 86);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(100, 211);
+            this.listView2.TabIndex = 14;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
+            // 
             // listView1
             // 
+            this.listView1.BackColor = System.Drawing.Color.DarkGray;
             this.listView1.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(74, 124);
+            this.listView1.Location = new System.Drawing.Point(49, 86);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(509, 125);
+            this.listView1.Size = new System.Drawing.Size(127, 211);
             this.listView1.TabIndex = 13;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
@@ -78,7 +106,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(225, 267);
+            this.button2.Location = new System.Drawing.Point(252, 313);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(119, 30);
             this.button2.TabIndex = 12;
@@ -142,5 +170,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListView listView3;
     }
 }

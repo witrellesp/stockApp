@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 
 namespace ApplicationGestionStock
@@ -26,9 +19,9 @@ namespace ApplicationGestionStock
             string nameProduit = inputName.Text;
 
             int stockProduit;
-            int priceProduit;
+            float priceProduit;
 
-            bool isPriceValide = int.TryParse(inputPrice.Text, out priceProduit);
+            bool isPriceValide = float.TryParse(inputPrice.Text, out priceProduit);
             bool isStockValide = int.TryParse(inputStock.Text, out stockProduit);
 
 
@@ -37,15 +30,23 @@ namespace ApplicationGestionStock
             string descrptProduit = inputDescrpt.Text;
 
 
-            if (!(isPriceValide)||!(isStockValide))
+            if (!(isPriceValide))
             {
-                /*
-                TypeError pageError = new TypeError();
+                
+                TypeError1 pageError = new TypeError1();
                 pageError.Show(); 
-                */
-                }
+                
+                
+            }
+            else if (!(isStockValide))
+            {
+                TyperError2 pageError2 = new TyperError2();
+                pageError2.Show(); 
+               
+            }
             else
-            {string message = $"NameProduct: {nameProduit}\n" +
+            {
+                string message = $"NameProduct: {nameProduit}\n" +
                                  $"Price: {priceProduit}\n" +
                                  $"Stock: {stockProduit}\n" +
                                  $"Supplier: {supplierProduit}\n" +
@@ -96,15 +97,17 @@ namespace ApplicationGestionStock
                 }
                 else
                 {
+                    /*
                     this.Hide();
                     NewProduct pageProducts = new NewProduct();
 
                     pageProducts.Show();
+                    */
                 }
             }
         }
         string connectionString = "Server=localhost;Port=6033;Database=db_stock;User Id=root;Password=root;";
-        
+
 
         private void backButton2(object sender, EventArgs e)
         {
@@ -138,14 +141,14 @@ namespace ApplicationGestionStock
 
         }
 
-        
+
 
         private void label5_Click(object sender, EventArgs e)
         {
 
         }
 
-     
+
 
         private void label6_Click(object sender, EventArgs e)
         {

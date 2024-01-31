@@ -134,6 +134,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TypeError1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TypeError1.Designer.cs">
+      <DependentUpon>TypeError1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TyperError2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TyperError2.Designer.cs">
+      <DependentUpon>TyperError2.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ApStock.resx">
       <DependentUpon>ApStock.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,6 +164,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TypeError1.resx">
+      <DependentUpon>TypeError1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TyperError2.resx">
+      <DependentUpon>TyperError2.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace ApplicationGestionStock
 {
@@ -40,32 +33,7 @@ namespace ApplicationGestionStock
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                connection.Open();
-                string query = "SELECT name,price, stock FROM t_product"; 
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-
-                using (MySqlDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        // Aquí procesas cada fila
-                        ListViewItem item = new ListViewItem(reader["name"].ToString());
-                        item.SubItems.Add(reader["price"].ToString());
-                        listView1.Items.Add(item);
-                    }
-                }
-            }
-
-
-
-
-
-
-
-
-
+            
 
         }
 
@@ -83,23 +51,33 @@ namespace ApplicationGestionStock
         {
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                listView1.Items.Clear();
+                
                 connection.Open();
                 string query = "SELECT name,price, stock FROM t_product";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
 
                 using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
+                    listView1.Items.Clear();
+                    listView2.Items.Clear();
+                    listView3.Items.Clear();
                     while (reader.Read())
                     {
-
-                        // Aquí procesas cada fila
                         ListViewItem item = new ListViewItem(reader["name"].ToString());
-                        ListViewItem item2 = new ListViewItem(reader["price"].ToString());
-                        item.SubItems.Add(reader["price"].ToString());
-                        listView1.Items.Add(item);
-                        listView1.Items.Add(item2);
                         
+                        ListViewItem item2 = new ListViewItem(reader["price"].ToString());
+                        ListViewItem item3 = new ListViewItem(reader["stock"].ToString());
+                        listView1.Columns.Add("Columna 1", -2, HorizontalAlignment.Left);
+                        listView1.Columns.Add("Columna 2", -2, HorizontalAlignment.Left);
+                        
+                        listView1.Items.Add(item);
+                        
+                        listView2.Items.Add(item2);
+                        listView3.Items.Add(item3);
+
+                        listView1.CheckBoxes = true;
+                        listView1.GridLines = true;
+
                     }
                 }
             }
@@ -108,9 +86,15 @@ namespace ApplicationGestionStock
         public void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+
         }
 
         private void Products_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
